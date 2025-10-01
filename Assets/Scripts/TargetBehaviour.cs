@@ -1,16 +1,11 @@
+using System;
 using UnityEngine;
 
 public class TargetBehaviour : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Action<GameObject> OnTargetHit;
+    void OnTriggerEnter(Collider other)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        OnTargetHit?.Invoke(gameObject);
     }
 }

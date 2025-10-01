@@ -1,12 +1,11 @@
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler Instance;
-    [SerializeField] private GameObject pooledPrefab;
-    [SerializeField] private int poolSize = 40;
-    private GameObject[] pool;
+    [SerializeField] private List<ObjectPool> pools;
+    private Dictionary<string, int> poolIndexMap;
 
     void Awake()
     {
@@ -23,24 +22,38 @@ public class ObjectPooler : MonoBehaviour
 
     void Start()
     {
-        pool = new GameObject[poolSize];
-        for (int i = 0; i < poolSize; i++)
+        poolIndexMap = new Dictionary<string, int>();
+        foreach (var pool in pools)
         {
-            pool[i] = Instantiate(pooledPrefab);
-            pool[i].SetActive(false);
+            pool.InitializePool(transform);
+            poolIndexMap[pool.PoolName] = pools.IndexOf(pool);
         }
     }
 
-    public GameObject GetPooledObject()
+    public GameObject GetPooledObject(string poolName = "", int poolIndex = -1)
     {
-        for (int i = 0; i < poolSize; i++)
+        if (poolIndex == -1 && poolName == "")
         {
-            if (!pool[i].activeInHierarchy)
+            Debug.LogError("No pool name or index provided!");
+            return null;
+        }
+
+        int index = poolIndex;
+        if (poolName != "")
+        {
+            if (poolIndexMap.ContainsKey(poolName))
+                index = poolIndexMap[poolName];
+            else
             {
-                return pool[i];
+                Debug.LogError($"No pool found with name: {poolName}");
+                return null;
             }
         }
-        Debug.LogWarning("Your pool is dry!");
-        return null;
+        if (index < 0 || index >= pools.Count)
+        {
+            Debug.LogError($"Pool index {index} is out of range!");
+            return null;
+        }
+        return pools[index].GetPooledObject();
     }
 }

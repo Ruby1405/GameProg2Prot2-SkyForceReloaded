@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8e9012e59b4f92d45910c82073b4341e
+guid: 7c663f7a90b258f418be18a5810b6178
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -8,27 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Metal
-    second: {fileID: 2100000, guid: 40ef448ad7312a44db245e251ab836cd, type: 2}
+    second: {fileID: 2100000, guid: 1cace74e8bdb2e1459cf43142a41d85b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Metal.001
-    second: {fileID: 2100000, guid: 40ef448ad7312a44db245e251ab836cd, type: 2}
+      name: Metal2
+    second: {fileID: 2100000, guid: d76385317e9128545a19e6f91f6db967, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Metal.002
-    second: {fileID: 2100000, guid: 3b2a48536cb657d4196e894b48878686, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Prop Blade
-    second: {fileID: 2100000, guid: 3b2a48536cb657d4196e894b48878686, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Window
-    second: {fileID: 2100000, guid: dc9110ce212d53a4da9f2c733da3fa4f, type: 2}
+      name: PinTop
+    second: {fileID: 4535187859162260907, guid: 8e9012e59b4f92d45910c82073b4341e, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -58,7 +48,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.05
+    globalScale: 0.1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -113,7 +103,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.05
+    globalScale: 0.1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

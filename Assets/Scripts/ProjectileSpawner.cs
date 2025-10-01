@@ -16,7 +16,7 @@ public class ProjectileSpawner : MonoBehaviour
         if (lastSpawnTime > 0f) return;
         lastSpawnTime = cooldown;
 
-        GameObject projectile = ObjectPooler.Instance.GetPooledObject();
+        GameObject projectile = ObjectPooler.Instance.GetPooledObject("PlayerProjectiles");
         if (projectile != null)
         {
             projectile.transform.position = transform.position;
