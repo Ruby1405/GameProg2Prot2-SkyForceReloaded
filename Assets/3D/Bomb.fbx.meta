@@ -18,7 +18,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: PinTop
-    second: {fileID: 4535187859162260907, guid: 8e9012e59b4f92d45910c82073b4341e, type: 3}
+    second: {fileID: 2100000, guid: eee06d75e6a33084aacea8456f82045a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

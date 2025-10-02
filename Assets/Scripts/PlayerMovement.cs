@@ -55,4 +55,9 @@ public class PlayerMovement : MonoBehaviour
             currentAcceleration = moveInput;
         }
     }
+
+    public void OnCollectableCollected(GameObject collectable)
+    {
+        
+    }
 }

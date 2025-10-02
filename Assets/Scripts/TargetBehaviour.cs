@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TargetBehaviour : MonoBehaviour
 {
-    public Action<GameObject> OnTargetHit;
+    [SerializeField] private UnityEvent<GameObject> OnTargetHit;
+    
     void OnTriggerEnter(Collider other)
     {
-        OnTargetHit?.Invoke(gameObject);
+        OnTargetHit?.Invoke(other.gameObject);
     }
 }
