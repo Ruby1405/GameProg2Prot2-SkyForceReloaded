@@ -22,7 +22,8 @@ public class GameVariablesEventSubscriber : MonoBehaviour
         }
         else
         {
-            ScoreEventManager.OnScoreChanged += gameVariables.AddScore;
+            ScoreEventManager.OnScoreChanged += gameVariables.ChangeScore;
+            HealthEventManager.OnHealthChanged += gameVariables.ChangeLife;
         }
     }
 }

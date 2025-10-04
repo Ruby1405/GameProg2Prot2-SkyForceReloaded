@@ -12,14 +12,15 @@ public class GameVariables : ScriptableObject
     public Action<int> OnScoreChanged;
     public Action<int> OnLivesChanged;
 
-    public void AddScore(int amount)
+    public void ChangeScore(int amount)
     {
         score += amount;
         OnScoreChanged?.Invoke(score);
     }
-    public void RemoveLife(int amount)
+    public void ChangeLife(int amount)
     {
-        lives -= amount;
+        Debug.Log("Changing lives by: " + amount);
+        lives += amount;
         OnLivesChanged?.Invoke(lives);
     }
 }
