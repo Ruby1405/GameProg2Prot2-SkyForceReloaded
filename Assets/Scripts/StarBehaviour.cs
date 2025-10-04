@@ -3,18 +3,7 @@ using UnityEngine;
 public class StarBehaviour : MonoBehaviour
 {
     private int size = 1;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-    
+    public int Size => size;
     public void SetSize(int newSize)
     {
         size = newSize;

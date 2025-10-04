@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerBehaviour : MonoBehaviour
 {
     private Rigidbody rb;
     private Vector2 moveInput;
@@ -58,6 +58,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnCollectableCollected(GameObject collectable)
     {
-        
+        if (collectable.TryGetComponent<StarBehaviour>(out var star))
+        {
+            ScoreEventManager.TriggerScoreChanged(star.Size);
+            collectable.SetActive(false);
+        }
     }
 }

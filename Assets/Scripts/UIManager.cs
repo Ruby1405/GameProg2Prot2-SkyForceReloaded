@@ -18,13 +18,6 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    void Start()
-    {
-        // Find gameVariables scriptable object 
-        // gameVariables = Resources.Load<GameVariables>("GameVariables");
-
         gameVariables.OnScoreChanged += UpdateScoreUI;
         gameVariables.OnLivesChanged += UpdateLivesUI;
     }

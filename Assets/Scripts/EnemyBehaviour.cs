@@ -31,6 +31,7 @@ public class EnemyBehavior : MonoBehaviour
             return;
         }
         Damage(proj.Damage);
+        projectile.SetActive(false);
     }
     private void Damage(int amount)
     {
