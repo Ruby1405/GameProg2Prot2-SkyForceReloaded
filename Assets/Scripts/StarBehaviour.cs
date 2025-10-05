@@ -9,9 +9,9 @@ public class StarBehaviour : MonoBehaviour
         size = newSize;
         transform.localScale = Vector3.one * (size switch
         {
-            1 => 1f,
-            3 => 2f,
             9 => 3f,
+            3 => 2f,
+            _ => 1f
         });
     }
 }
