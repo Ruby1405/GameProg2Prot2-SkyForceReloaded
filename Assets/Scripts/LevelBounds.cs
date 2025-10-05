@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class ProjectileBounds : MonoBehaviour
+public class LevelBounds : MonoBehaviour
 {
-    public static ProjectileBounds Instance;
+    public static LevelBounds Instance;
 
     void Awake()
     {

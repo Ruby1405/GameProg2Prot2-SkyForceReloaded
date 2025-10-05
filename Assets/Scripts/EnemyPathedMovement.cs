@@ -1,5 +1,25 @@
 using UnityEngine;
 
+[System.Serializable]
+public struct EnemyPathedSpawnVariables : EnemySpawnVariables
+{
+    [SerializeField] public CatmullRomSpline newSpline;
+    [SerializeField] public float speed;
+    [SerializeField] public float startT;
+    [SerializeField] public float tangentPrediction;
+    public EnemyPathedSpawnVariables(
+        CatmullRomSpline newSpline,
+        float speed,
+        float startT = 0f,
+        float tangentPrediction = 0.01f)
+    {
+        this.newSpline = newSpline;
+        this.speed = speed;
+        this.startT = startT;
+        this.tangentPrediction = tangentPrediction;
+    }
+}
+
 public class EnemyPathedMovement : MonoBehaviour
 {
     [SerializeField] private CatmullRomSpline path;
@@ -7,11 +27,12 @@ public class EnemyPathedMovement : MonoBehaviour
     [SerializeField] private float speed = 1f;
     [SerializeField][Range(0.0001f, 0.1f)] private float tangentPrediction = 0.01f;
 
-    public void SetPath(CatmullRomSpline newSpline, float speed, float startT = 0f)
+    public void Initialize(EnemyPathedSpawnVariables vars)
     {
-        path = newSpline;
-        this.speed = speed;
-        t = startT;
+        path = vars.newSpline;
+        this.speed = vars.speed;
+        t = vars.startT;
+        this.tangentPrediction = vars.tangentPrediction;
     }
 
     void FixedUpdate()
