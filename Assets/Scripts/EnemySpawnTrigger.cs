@@ -9,7 +9,6 @@ public class EnemySpawnTrigger : MonoBehaviour
     [SerializeField] private EnemyPathedSpawnVariables spawnVariables = new EnemyPathedSpawnVariables();
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Enemy spawn triggered");
         if (poolName != "")
         {
             GameObject enemy = ObjectPooler.Instance.GetPooledObject(poolName);

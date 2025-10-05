@@ -19,7 +19,6 @@ public class GameVariables : ScriptableObject
     }
     public void ChangeLife(int amount)
     {
-        Debug.Log("Changing lives by: " + amount);
         lives += amount;
         OnLivesChanged?.Invoke(lives);
     }

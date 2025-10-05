@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
     }
     void OnEnable()
     {
-        rb.linearVelocity = transform.up * speed;
+        rb.linearVelocity = transform.forward * speed;
     }
 
     void Update()

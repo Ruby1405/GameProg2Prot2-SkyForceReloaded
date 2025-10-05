@@ -6,7 +6,6 @@ public static class HealthEventManager
 
     public static void TriggerHealthChanged(int health)
     {
-        Debug.Log("Health changed: " + health);
         OnHealthChanged?.Invoke(health);
     }
 }

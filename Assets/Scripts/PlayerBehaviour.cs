@@ -67,7 +67,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void OnCollided(GameObject other)
     {
-        Debug.Log("Player hit by " + other.name);
         HealthEventManager.TriggerHealthChanged(-1);
     }
 }
