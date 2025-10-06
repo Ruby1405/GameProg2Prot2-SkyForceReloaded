@@ -134,6 +134,7 @@ public class BossAttackBomb : BossAttack
 
     void OnDrawGizmosSelected()
     {
+        if (!showGizmos) return;
         Gizmos.color = gizmoColor;
         Gizmos.DrawWireSphere(new Vector3(source.x, 0f, source.y), 0.3f);
         Gizmos.DrawLine(
