@@ -468,7 +468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pools:
   - poolName: PlayerProjectiles
-    pooledPrefab: {fileID: 8328073241061090029, guid: 75600a6b4da9a0b479884f08f9a22580, type: 3}
+    pooledPrefab: {fileID: 6527957184612473896, guid: 1252e3dc165230b41b8d54984f93e966, type: 3}
     poolSize: 40
   - poolName: Stars
     pooledPrefab: {fileID: 533837352599792109, guid: 84a661ec4abb60443a39c8b8fdc489ad, type: 3}
@@ -482,6 +482,9 @@ MonoBehaviour:
   - poolName: MissileWarnings
     pooledPrefab: {fileID: 1401557584470060942, guid: 2a95139cbc789484e8004e3e15cd4801, type: 3}
     poolSize: 40
+  - poolName: Bombs
+    pooledPrefab: {fileID: 7274979645324806926, guid: a460fcc853955f74b9f683102704d38e, type: 3}
+    poolSize: 80
 --- !u!4 &347285444
 Transform:
   m_ObjectHideFlags: 0
@@ -3072,6 +3075,7 @@ GameObject:
   - component: {fileID: 7644618993833770549}
   - component: {fileID: 7644618993833770550}
   - component: {fileID: 7644618993833770551}
+  - component: {fileID: 7644618993833770552}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -3120,6 +3124,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missilePoolName: Missiles
   warningPoolName: MissileWarnings
+  warningLineLength: 100
+  warningTime: 1
+  gracePeriod: 2
+  showGizmos: 1
+  gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  directionLength: 3
+  edit: 0
   paths:
   - start: {x: 21.7637, y: 36}
     direction: {x: -0.86409175, y: -0.5033344}
@@ -3139,13 +3150,6 @@ MonoBehaviour:
     direction: {x: -0.86409175, y: -0.5033344}
   - start: {x: 21.7637, y: 4}
     direction: {x: -0.86409175, y: -0.5033344}
-  showGizmos: 1
-  gizmoColor: {r: 1, g: 0, b: 0, a: 1}
-  directionLength: 3
-  edit: 0
-  warningLineLength: 100
-  warningTime: 1
-  gracePeriod: 2
 --- !u!114 &7644618993833770550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3160,6 +3164,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missilePoolName: Missiles
   warningPoolName: MissileWarnings
+  warningLineLength: 100
+  warningTime: 1
+  gracePeriod: 2
+  showGizmos: 1
+  gizmoColor: {r: 1, g: 0.5615012, b: 0, a: 1}
+  directionLength: 3
+  edit: 0
   paths:
   - start: {x: -21.7637, y: 36}
     direction: {x: 0.86409175, y: -0.5033344}
@@ -3179,13 +3190,6 @@ MonoBehaviour:
     direction: {x: 0.86409175, y: -0.5033344}
   - start: {x: -21.7637, y: 4}
     direction: {x: 0.86409175, y: -0.5033344}
-  showGizmos: 1
-  gizmoColor: {r: 1, g: 0.5615012, b: 0, a: 1}
-  directionLength: 3
-  edit: 0
-  warningLineLength: 100
-  warningTime: 1
-  gracePeriod: 2
 --- !u!114 &7644618993833770551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3200,6 +3204,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missilePoolName: Missiles
   warningPoolName: MissileWarnings
+  warningLineLength: 100
+  warningTime: 1
+  gracePeriod: 2
+  showGizmos: 1
+  gizmoColor: {r: 1, g: 0, b: 0.86230993, a: 1}
+  directionLength: 3
+  edit: 0
   paths:
   - start: {x: -29.739756, y: 10.231967}
     direction: {x: 0.99015844, y: -0.13995111}
@@ -3223,13 +3234,24 @@ MonoBehaviour:
     direction: {x: -0.93893504, y: -0.34409454}
   - start: {x: 29.623775, y: 10.231967}
     direction: {x: -0.99010456, y: -0.14033164}
+--- !u!114 &7644618993833770552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644618993833770547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a2c58d6b765b449b4a971550bbd8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPoolName: Bombs
+  source: {x: 0, y: 8}
+  firingArc: 242.5
   showGizmos: 1
-  gizmoColor: {r: 1, g: 0, b: 0.86230993, a: 1}
-  directionLength: 3
+  gizmoColor: {r: 1, g: 0, b: 0, a: 1}
   edit: 0
-  warningLineLength: 100
-  warningTime: 1
-  gracePeriod: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

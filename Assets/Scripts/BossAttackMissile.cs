@@ -48,7 +48,6 @@ public class BossAttackMissileEditor : Editor
 }
 #endif
 
-[System.Serializable]
 public class BossAttackMissile : BossAttack
 {
     [Header("Attack Pools")]
@@ -144,15 +143,9 @@ public class BossAttackMissile : BossAttack
                 warnings.Clear();
 
                 // launch missiles
-                foreach (var path in paths)
+                foreach (MissilePath path in paths)
                 {
-                    GameObject missile = ObjectPooler.Instance.GetPooledObject(missilePoolName);
-                    if (missile != null)
-                    {
-                        missile.transform.position = new Vector3(path.start.x, 0, path.start.y);
-                        missile.transform.rotation = Quaternion.LookRotation(new Vector3(path.direction.x, 0, path.direction.y), Vector3.up);
-                        missile.SetActive(true);
-                    }
+                    SpawnMissile(path);
                 }
             }
         }
@@ -163,6 +156,17 @@ public class BossAttackMissile : BossAttack
             {
                 OnAttackFinished?.Invoke();
             }
+        }
+    }
+
+    private void SpawnMissile(MissilePath path)
+    {
+        GameObject missile = ObjectPooler.Instance.GetPooledObject(missilePoolName);
+        if (missile != null)
+        {
+            missile.transform.position = new Vector3(path.start.x, 0, path.start.y);
+            missile.transform.rotation = Quaternion.LookRotation(new Vector3(path.direction.x, 0, path.direction.y), Vector3.up);
+            missile.SetActive(true);
         }
     }
 
