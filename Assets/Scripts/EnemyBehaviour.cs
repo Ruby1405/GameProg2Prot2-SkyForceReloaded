@@ -24,14 +24,16 @@ public class EnemyBehavior : MonoBehaviour
     }
     public void Hit(GameObject projectile)
     {
-        Projectile proj;
-        if (!projectile.TryGetComponent<Projectile>(out proj))
+        if (projectile.TryGetComponent<Projectile>(out var proj))
+        {
+            Damage(proj.Damage);
+            projectile.SetActive(false);
+        }
+        else
         {
             Debug.LogWarning("Projectile does not have a Projectile component.");
             return;
         }
-        Damage(proj.Damage);
-        projectile.SetActive(false);
     }
     private void Damage(int amount)
     {
