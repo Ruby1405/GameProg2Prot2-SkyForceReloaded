@@ -56,16 +56,13 @@ public class BossAttackMissile : BossAttack
     [SerializeField] private string warningPoolName;
     private List<GameObject> warnings = new List<GameObject>();
 
-    
-    [System.Serializable]
-    public struct MissilePath
-    {
-        public Vector2 start;
-        public Vector2 direction;
-    }
-    [Header("Missile Paths")]
-    [SerializeField] private List<MissilePath> paths;
-    public List<MissilePath> Paths => paths;
+
+    [Header("Attack Settings")]
+    [SerializeField] private float warningLineLength = 100f;
+    [SerializeField] private float warningTime = 1.5f;
+    [SerializeField] private float gracePeriod = 0.5f;
+    private float attackTime = 0f;
+    private bool isAttacking = false;
 
 
     [Header("Gizmos")]
@@ -76,13 +73,15 @@ public class BossAttackMissile : BossAttack
     [SerializeField] private bool edit = false;
     public bool EditMode => edit;
 
-
-    [Header("Attack Settings")]
-    [SerializeField] private float warningLineLength = 100f;
-    [SerializeField] private float warningTime = 1.5f;
-    [SerializeField] private float gracePeriod = 0.5f;
-    private float attackTime = 0f;
-    private bool isAttacking = false;
+    
+    [System.Serializable]
+    public struct MissilePath
+    {
+        public Vector2 start;
+        public Vector2 direction;
+    }
+    [SerializeField] private List<MissilePath> paths;
+    public List<MissilePath> Paths => paths;
 
     void OnValidate()
     {
