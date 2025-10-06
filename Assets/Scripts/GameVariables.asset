@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4a791dffb71fb044b248345b42f942d, type: 3}
   m_Name: GameVariables
   m_EditorClassIdentifier: 
-  score: 968
+  score: 1167
   lives: 3

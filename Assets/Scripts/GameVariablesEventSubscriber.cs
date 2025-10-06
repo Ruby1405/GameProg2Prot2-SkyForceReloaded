@@ -24,6 +24,10 @@ public class GameVariablesEventSubscriber : MonoBehaviour
         {
             ScoreEventManager.OnScoreChanged += gameVariables.ChangeScore;
             HealthEventManager.OnHealthChanged += gameVariables.ChangeLife;
+            
+            #if UNITY_EDITOR
+            gameVariables.Reset();
+            #endif
         }
     }
 }

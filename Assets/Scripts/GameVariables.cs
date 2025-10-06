@@ -22,4 +22,9 @@ public class GameVariables : ScriptableObject
         lives += amount;
         OnLivesChanged?.Invoke(lives);
     }
+    public void Reset()
+    {
+        lives = 3;
+        score = 0;
+    }
 }
