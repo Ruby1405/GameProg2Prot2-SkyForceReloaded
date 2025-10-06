@@ -38,6 +38,7 @@ public class CatmullRomSpline : MonoBehaviour
 {
     [SerializeField] private List<Vector2> controlPoints;
     [SerializeField] private Color splineColor = Color.black;
+    public Color SplineColor => splineColor;
     [SerializeField][Range(0.01f, 1f)] private float alpha = 0.5f;
     [SerializeField] private int gizmoResolution = 10;
     [SerializeField] float speed = 1;
@@ -120,16 +121,10 @@ public class CatmullRomSpline : MonoBehaviour
 
         Vector3 localPos = transform.position;
 
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.black;
         for (int i = 0; i < controlPoints.Count - 1; i++)
         {
             Gizmos.DrawLine(localPos + new Vector3(controlPoints[i].x, 0, controlPoints[i].y), localPos + new Vector3(controlPoints[i + 1].x, 0, controlPoints[i + 1].y));
-        }
-
-        Gizmos.color = new Color(1, 0.5f, 0);
-        foreach (var p in controlPoints)
-        {
-            Gizmos.DrawSphere(localPos + new Vector3(p.x, 0, p.y), 0.05f);
         }
     }
 }
