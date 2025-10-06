@@ -20,6 +20,7 @@ public struct EnemyPathedSpawnVariables : EnemySpawnVariables
     }
 }
 
+[RequireComponent(typeof(EnemyBehavior))]
 public class EnemyPathedMovement : MonoBehaviour
 {
     [SerializeField] private CatmullRomSpline path;
@@ -39,7 +40,10 @@ public class EnemyPathedMovement : MonoBehaviour
     {
         if (path == null) return;
         t += speed * Time.fixedDeltaTime;
-        if (t > 1f) t = 1f;
+        if (t > 1f)
+        {
+            gameObject.GetComponent<EnemyBehavior>().PoolReset();
+        }
         transform.position = path.GetWorldPoint(t);
 
         // rotate to face the direction of movement

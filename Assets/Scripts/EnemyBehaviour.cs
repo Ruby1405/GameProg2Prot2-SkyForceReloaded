@@ -17,7 +17,7 @@ public class EnemyBehavior : MonoBehaviour
         });
         PoolReset();
     }
-    private void PoolReset()
+    public void PoolReset()
     {
         currentHealth = maxHealth;
         gameObject.SetActive(false);
