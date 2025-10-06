@@ -7,10 +7,14 @@ public class BossBehaviour : MonoBehaviour
     [SerializeField] private float startGracePeriod = 2f;
     private float gracePeriod;
 
-    void Awake()
+    void Start()
     {
         BossAttack.OnAttackFinished += StartAttackCycle;
-        attacks = new List<BossAttack>(GetComponents<BossAttack>());
+        attacks = new List<BossAttack>();
+        foreach (var attack in GetComponents<BossAttack>())
+        {
+            if (attack.isActiveAndEnabled) attacks.Add(attack);
+        }
         gracePeriod = startGracePeriod;
     }
 

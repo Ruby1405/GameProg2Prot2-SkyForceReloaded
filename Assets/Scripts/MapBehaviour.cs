@@ -8,4 +8,9 @@ public class MapBehaviour : MonoBehaviour
     {
         GetComponent<Rigidbody>().linearVelocity = new Vector3(0, 0, -scrollSpeed);
     }
+
+    // void OnCollisionEnter(Collision collision)
+    // {
+    //   Debug.Log("OnCollisionEnter");
+    // }
 }

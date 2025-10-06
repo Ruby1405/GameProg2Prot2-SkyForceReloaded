@@ -37,15 +37,14 @@ public class BossAttackBomb : BossAttack
             }
             else
             {
+                const float groupSpacing = 40f * Mathf.Deg2Rad;
                 switch (attackPhase)
                 {
                     case 0:
                         {
-                            const int iterations = 8;
-                            for (int i = 0; i < iterations; i++)
+                            for (float i = minAngle; i < maxAngle; i += groupSpacing)
                             {
-                                float angle = (50f + i * (240f / (iterations + 1)) + 90f) * Mathf.Deg2Rad;
-                                Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                                Vector2 direction = new Vector2(Mathf.Cos(i), Mathf.Sin(i));
                                 SpawnBomb(direction);
                             }
                             attackTime = 0.1f;
@@ -53,11 +52,9 @@ public class BossAttackBomb : BossAttack
                         }
                     case 1:
                         {
-                            const int iterations = 8;
-                            for (int i = 0; i < iterations; i++)
+                            for (float i = minAngle + 5 * Mathf.Deg2Rad; i < maxAngle; i += groupSpacing)
                             {
-                                float angle = (55f + i * (240f / (iterations + 1)) + 90f) * Mathf.Deg2Rad;
-                                Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                                Vector2 direction = new Vector2(Mathf.Cos(i), Mathf.Sin(i));
                                 SpawnBomb(direction);
                             }
                             attackTime = 0.1f;
@@ -65,23 +62,19 @@ public class BossAttackBomb : BossAttack
                         }
                     case 2:
                         {
-                            const int iterations = 8;
-                            for (int i = 0; i < iterations; i++)
+                            for (float i = minAngle + 10 * Mathf.Deg2Rad; i < maxAngle; i += groupSpacing)
                             {
-                                float angle = (60f + i * (240f / (iterations + 1)) + 90f) * Mathf.Deg2Rad;
-                                Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                                Vector2 direction = new Vector2(Mathf.Cos(i), Mathf.Sin(i));
                                 SpawnBomb(direction);
                             }
-                            attackTime = 2f;
+                            attackTime = 0.1f;
                             break;
                         }
                     case 3:
                         {
-                            const int iterations = 8;
-                            for (int i = 0; i < iterations; i++)
+                            for (float i = maxAngle; i < minAngle; i -= groupSpacing)
                             {
-                                float angle = (-50f - i * (240f / (iterations + 1)) + 90f) * Mathf.Deg2Rad;
-                                Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                                Vector2 direction = new Vector2(Mathf.Cos(i), Mathf.Sin(i));
                                 SpawnBomb(direction);
                             }
                             attackTime = 0.1f;
@@ -89,11 +82,9 @@ public class BossAttackBomb : BossAttack
                         }
                     case 4:
                         {
-                            const int iterations = 8;
-                            for (int i = 0; i < iterations; i++)
+                            for (float i = maxAngle - 5 * Mathf.Deg2Rad; i < minAngle; i -= groupSpacing)
                             {
-                                float angle = (-55f - i * (240f / (iterations + 1)) + 90f) * Mathf.Deg2Rad;
-                                Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                                Vector2 direction = new Vector2(Mathf.Cos(i), Mathf.Sin(i));
                                 SpawnBomb(direction);
                             }
                             attackTime = 0.1f;
@@ -101,14 +92,12 @@ public class BossAttackBomb : BossAttack
                         }
                     case 5:
                         {
-                            const int iterations = 8;
-                            for (int i = 0; i < iterations; i++)
+                            for (float i = maxAngle - 10 * Mathf.Deg2Rad; i < minAngle; i -= groupSpacing)
                             {
-                                float angle = (-60f - i * (240f / (iterations + 1)) + 90f) * Mathf.Deg2Rad;
-                                Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+                                Vector2 direction = new Vector2(Mathf.Cos(i), Mathf.Sin(i));
                                 SpawnBomb(direction);
                             }
-                            attackTime = 5f;
+                            attackTime = 0.1f;
                             break;
                         }
                     default:
