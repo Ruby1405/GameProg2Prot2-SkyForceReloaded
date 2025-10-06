@@ -9,7 +9,6 @@ public class EnemySpawnTrigger : MonoBehaviour
     [SerializeField] private EnemyPathedSpawnVariables spawnVariables = new EnemyPathedSpawnVariables();
     void OnTriggerEnter(Collider colider)
     {
-        Debug.Log(colider.name + gameObject.name);
         if (poolName != "")
         {
             GameObject enemy = ObjectPooler.Instance.GetPooledObject(poolName);
@@ -23,6 +22,7 @@ public class EnemySpawnTrigger : MonoBehaviour
                 enemy.SetActive(true);
                 enemy.transform.position = transform.position;
                 enemyMovement.Initialize((EnemyPathedSpawnVariables)spawnVariables);
+                Destroy(gameObject);
             }
         }
         else if (enemyPrefab != null)

@@ -11,6 +11,8 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private float acceleration = 20f;
     [SerializeField] private float maxSpeed = 5f;
     [SerializeField] private UnityEvent<Vector2> onAccelerationChange;
+    [SerializeField] private float iFrameLength = 0.2f;
+    private float iFrameTimer;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,6 +24,7 @@ public class PlayerBehaviour : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+        if (0 < iFrameTimer) iFrameTimer -= Time.fixedDeltaTime;
     }
 
     public void GetMoveInput(InputAction.CallbackContext context)
@@ -67,6 +70,11 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void OnCollided(GameObject other)
     {
-        HealthEventManager.TriggerHealthChanged(-1);
+        if (0 >= iFrameTimer)
+        {
+            Debug.Log("Collided");
+            iFrameTimer = iFrameLength;
+            HealthEventManager.TriggerHealthChanged(-1);
+        }
     }
 }
