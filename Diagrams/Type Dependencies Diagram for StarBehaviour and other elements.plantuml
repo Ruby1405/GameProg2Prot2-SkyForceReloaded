@@ -1,0 +1,78 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+rectangle BossAttack
+rectangle BossAttackBomb
+rectangle BossAttackMissile
+rectangle BossAttackMissileEditor
+rectangle BossBehaviour
+rectangle CatmullRomSpline
+rectangle CatmullRomSplineEditor
+rectangle EnemyBehavior
+rectangle EnemyDestroyedEventArgs
+rectangle EnemyEventManager
+rectangle EnemyPathedMovement
+rectangle EnemySpawnTrigger
+rectangle GameVariables
+rectangle GameVariablesEventSubscriber
+rectangle HealthEventManager
+rectangle LevelBounds
+rectangle MapBehaviour
+rectangle MissilePath
+rectangle ObjectPool
+rectangle ObjectPooler
+rectangle PlayerBehaviour
+rectangle Projectile
+rectangle ProjectileSpawner
+rectangle ScoreEventManager
+rectangle StarBehaviour
+rectangle StarManager
+rectangle TargetBehaviour
+rectangle TiltMeshAnimator
+rectangle UIManager
+
+BossAttackBomb                -[#24a394,dashed]-^  BossAttack                   
+BossAttackBomb                -[#3574f0,plain]->>  BossAttack                   
+BossAttackBomb                -[#3574f0,plain]->>  ObjectPooler                 
+BossAttackMissile             -[#3574f0,plain]->>  BossAttack                   
+BossAttackMissile             -[#24a394,dashed]-^  BossAttack                   
+BossAttackMissile             -[#3574f0,plain]->>  MissilePath                  
+BossAttackMissile             -[#3574f0,plain]->>  ObjectPooler                 
+BossAttackMissileEditor       -[#3574f0,plain]->>  BossAttackMissile            
+BossAttackMissileEditor       -[#3574f0,plain]->>  MissilePath                  
+BossBehaviour                 -[#3574f0,plain]->>  BossAttack                   
+CatmullRomSplineEditor        -[#3574f0,plain]->>  CatmullRomSpline             
+EnemyBehavior                 -[#3574f0,plain]->>  EnemyDestroyedEventArgs      
+EnemyBehavior                 -[#3574f0,plain]->>  EnemyEventManager            
+EnemyBehavior                 -[#3574f0,plain]->>  Projectile                   
+EnemyEventManager             -[#3574f0,plain]->>  EnemyDestroyedEventArgs      
+EnemyPathedMovement           -[#3574f0,plain]->>  CatmullRomSpline             
+EnemyPathedMovement           -[#5fad65,dotted]->>  CatmullRomSpline             
+EnemyPathedMovement           -[#3574f0,plain]->>  EnemyBehavior                
+EnemySpawnTrigger             -[#5fad65,dotted]->>  CatmullRomSpline             
+EnemySpawnTrigger             -[#3574f0,plain]->>  EnemyPathedMovement          
+EnemySpawnTrigger             -[#3574f0,plain]->>  ObjectPooler                 
+GameVariablesEventSubscriber  -[#3574f0,plain]->>  GameVariables                
+GameVariablesEventSubscriber  -[#5fad65,dotted]->>  GameVariables                
+GameVariablesEventSubscriber  -[#5fad65,dotted]->>  GameVariablesEventSubscriber 
+GameVariablesEventSubscriber  -[#3574f0,plain]->>  HealthEventManager           
+GameVariablesEventSubscriber  -[#3574f0,plain]->>  ScoreEventManager            
+LevelBounds                   -[#5fad65,dotted]->>  LevelBounds                  
+ObjectPooler                  -[#3574f0,plain]->>  ObjectPool                   
+ObjectPooler                  -[#5fad65,dotted]->>  ObjectPooler                 
+PlayerBehaviour               -[#3574f0,plain]->>  HealthEventManager           
+PlayerBehaviour               -[#3574f0,plain]->>  ScoreEventManager            
+PlayerBehaviour               -[#3574f0,plain]->>  StarBehaviour                
+ProjectileSpawner             -[#3574f0,plain]->>  ObjectPooler                 
+StarManager                   -[#3574f0,plain]->>  EnemyDestroyedEventArgs      
+StarManager                   -[#3574f0,plain]->>  EnemyEventManager            
+StarManager                   -[#3574f0,plain]->>  ObjectPooler                 
+StarManager                   -[#3574f0,plain]->>  StarBehaviour                
+StarManager                   -[#5fad65,dotted]->>  StarManager                  
+UIManager                     -[#3574f0,plain]->>  GameVariables                
+UIManager                     -[#5fad65,dotted]->>  GameVariables                
+UIManager                     -[#5fad65,dotted]->>  UIManager                    
+@enduml
