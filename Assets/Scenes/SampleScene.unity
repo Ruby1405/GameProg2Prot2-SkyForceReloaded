@@ -2396,6 +2396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a326521185fed5049bdb0f86fe1cdbe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gizmoColor: {r: 0, g: 0, b: 1, a: 1}
 --- !u!4 &1995166537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2097653828601774882, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
@@ -3070,6 +3071,7 @@ GameObject:
   - component: {fileID: 6790403336481212678}
   - component: {fileID: 7644618993833770549}
   - component: {fileID: 7644618993833770550}
+  - component: {fileID: 7644618993833770551}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -3178,7 +3180,51 @@ MonoBehaviour:
   - start: {x: -21.7637, y: 4}
     direction: {x: 0.86409175, y: -0.5033344}
   showGizmos: 1
-  gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  gizmoColor: {r: 1, g: 0.5615012, b: 0, a: 1}
+  directionLength: 3
+  edit: 0
+  warningLineLength: 100
+  warningTime: 1
+  gracePeriod: 2
+--- !u!114 &7644618993833770551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644618993833770547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6bd190459343c43874a64c2fadfe7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missilePoolName: Missiles
+  warningPoolName: MissileWarnings
+  paths:
+  - start: {x: -29.739756, y: 10.231967}
+    direction: {x: 0.99015844, y: -0.13995111}
+  - start: {x: -28.101845, y: 16.463936}
+    direction: {x: 0.93801934, y: -0.34658292}
+  - start: {x: -24.985863, y: 22.63791}
+    direction: {x: 0.83282006, y: -0.5535438}
+  - start: {x: -20.107275, y: 28.160873}
+    direction: {x: 0.6699119, y: -0.74244064}
+  - start: {x: -11.991291, y: 33.26705}
+    direction: {x: 0.40106466, y: -0.9160498}
+  - start: {x: 0, y: 36.00634}
+    direction: {x: 0, y: -1}
+  - start: {x: 12.025999, y: 33.481735}
+    direction: {x: -0.40011162, y: -0.9164665}
+  - start: {x: 20.105078, y: 28.279057}
+    direction: {x: -0.67026985, y: -0.7421175}
+  - start: {x: 25.043854, y: 22.521927}
+    direction: {x: -0.83280903, y: -0.55356044}
+  - start: {x: 28.159838, y: 16.289959}
+    direction: {x: -0.93893504, y: -0.34409454}
+  - start: {x: 29.623775, y: 10.231967}
+    direction: {x: -0.99010456, y: -0.14033164}
+  showGizmos: 1
+  gizmoColor: {r: 1, g: 0, b: 0.86230993, a: 1}
   directionLength: 3
   edit: 0
   warningLineLength: 100
