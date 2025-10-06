@@ -6,7 +6,7 @@ public class EnemySpawnTrigger : MonoBehaviour
     [SerializeField] private string poolName = "";
     [SerializeField] private GameObject enemyPrefab = null;
     [Header("Spawn options")]
-    [SerializeField] private EnemyPathedSpawnVariables spawnVariables = new EnemyPathedSpawnVariables();
+    [SerializeField] private CatmullRomSpline path = null;
     void OnTriggerEnter(Collider colider)
     {
         if (poolName != "")
@@ -21,7 +21,7 @@ public class EnemySpawnTrigger : MonoBehaviour
             {
                 enemy.SetActive(true);
                 enemy.transform.position = transform.position;
-                enemyMovement.Initialize((EnemyPathedSpawnVariables)spawnVariables);
+                enemyMovement.Initialize(path);
                 Destroy(gameObject);
             }
         }

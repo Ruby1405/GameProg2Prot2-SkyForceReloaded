@@ -40,6 +40,8 @@ public class CatmullRomSpline : MonoBehaviour
     [SerializeField] private Color splineColor = Color.black;
     [SerializeField][Range(0.01f, 1f)] private float alpha = 0.5f;
     [SerializeField] private int gizmoResolution = 10;
+    [SerializeField] float speed = 1;
+    public float Speed => speed;
     public List<Vector2> ControlPoints => controlPoints;
     public void SetSpline(List<Vector2> points)
     {

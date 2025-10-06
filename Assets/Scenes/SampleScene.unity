@@ -173,6 +173,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 901977415}
+    - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
       propertyPath: spawnVariables.newSpline
       value: 
       objectReference: {fileID: 901977415}
@@ -283,6 +287,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 901977415}
     - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
       propertyPath: spawnVariables.newSpline
       value: 
@@ -1235,6 +1243,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 901977415}
+    - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
       propertyPath: spawnVariables.newSpline
       value: 
       objectReference: {fileID: 901977415}
@@ -1396,6 +1408,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 901977415}
     - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
       propertyPath: spawnVariables.newSpline
       value: 
@@ -1588,6 +1604,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 901977415}
     - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
       propertyPath: spawnVariables.newSpline
       value: 
@@ -1913,6 +1933,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 901977415}
+    - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
       propertyPath: spawnVariables.newSpline
       value: 
       objectReference: {fileID: 901977415}
@@ -2139,6 +2163,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 901977415}
+    - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
       propertyPath: spawnVariables.newSpline
       value: 
       objectReference: {fileID: 901977415}
@@ -2282,6 +2310,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  iFrameLength: 0.2
 --- !u!54 &1507529190
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2377,6 +2406,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 901977415}
+    - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
       propertyPath: spawnVariables.newSpline
       value: 
       objectReference: {fileID: 901977415}
@@ -2447,6 +2480,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 901977415}
     - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
       propertyPath: spawnVariables.newSpline
       value: 
@@ -2593,6 +2630,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 901977415}
     - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
       propertyPath: spawnVariables.newSpline
       value: 
@@ -2779,6 +2820,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 901977415}
+    - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
       propertyPath: spawnVariables.newSpline
       value: 
       objectReference: {fileID: 901977415}
@@ -2844,6 +2889,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 901977415}
     - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
       propertyPath: spawnVariables.newSpline
       value: 
@@ -3276,6 +3325,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
+      propertyPath: path
+      value: 
+      objectReference: {fileID: 901977415}
     - target: {fileID: 5155438984559298937, guid: 3685f3f491d399a40bf38c5ab2bf01ac, type: 3}
       propertyPath: spawnVariables.newSpline
       value: 

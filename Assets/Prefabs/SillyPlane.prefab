@@ -5026,8 +5026,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8763500007286896549}
   - component: {fileID: 14724970776932782}
-  - component: {fileID: 7227195888368759213}
   - component: {fileID: 7973992113795877094}
+  - component: {fileID: 7227195888368759213}
   m_Layer: 7
   m_Name: SillyPlane
   m_TagString: Untagged
@@ -5068,6 +5068,21 @@ MonoBehaviour:
   scoreValue: 5
   maxHealth: 3
   currentHealth: 0
+--- !u!114 &7973992113795877094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4034535561540271541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ca159ca353a1a4d89d9abd0c1e74e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: {fileID: 0}
+  speed: 0.1
+  tangentPrediction: 0.01
 --- !u!54 &7227195888368759213
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5095,21 +5110,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
---- !u!114 &7973992113795877094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4034535561540271541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11ca159ca353a1a4d89d9abd0c1e74e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spline: {fileID: 0}
-  t: 0
-  speed: 0.1
 --- !u!1 &8188947817108902142
 GameObject:
   m_ObjectHideFlags: 0
