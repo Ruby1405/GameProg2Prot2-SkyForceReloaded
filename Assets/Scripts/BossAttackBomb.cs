@@ -38,75 +38,46 @@ public class BossAttackBomb : BossAttack
             else
             {
                 const float groupSpacing = 40f * Mathf.Deg2Rad;
-                switch (attackPhase)
+
+                Vector2[] bombPlacements = new Vector2[]
                 {
-                    case 0:
-                        {
-                            for (float i = minAngle; i < maxAngle; i += groupSpacing)
-                            {
-                                Vector2 direction = new Vector2(Mathf.Cos(i), Mathf.Sin(i));
-                                SpawnBomb(direction);
-                            }
-                            attackTime = 0.1f;
-                            break;
-                        }
-                    case 1:
-                        {
-                            for (float i = minAngle + 5 * Mathf.Deg2Rad; i < maxAngle; i += groupSpacing)
-                            {
-                                Vector2 direction = new Vector2(Mathf.Cos(i), Mathf.Sin(i));
-                                SpawnBomb(direction);
-                            }
-                            attackTime = 0.1f;
-                            break;
-                        }
-                    case 2:
-                        {
-                            for (float i = minAngle + 10 * Mathf.Deg2Rad; i < maxAngle; i += groupSpacing)
-                            {
-                                Vector2 direction = new Vector2(Mathf.Cos(i), Mathf.Sin(i));
-                                SpawnBomb(direction);
-                            }
-                            attackTime = 0.1f;
-                            break;
-                        }
-                    case 3:
-                        {
-                            for (float i = maxAngle; i < minAngle; i -= groupSpacing)
-                            {
-                                Vector2 direction = new Vector2(Mathf.Cos(i), Mathf.Sin(i));
-                                SpawnBomb(direction);
-                            }
-                            attackTime = 0.1f;
-                            break;
-                        }
-                    case 4:
-                        {
-                            for (float i = maxAngle - 5 * Mathf.Deg2Rad; i < minAngle; i -= groupSpacing)
-                            {
-                                Vector2 direction = new Vector2(Mathf.Cos(i), Mathf.Sin(i));
-                                SpawnBomb(direction);
-                            }
-                            attackTime = 0.1f;
-                            break;
-                        }
-                    case 5:
-                        {
-                            for (float i = maxAngle - 10 * Mathf.Deg2Rad; i < minAngle; i -= groupSpacing)
-                            {
-                                Vector2 direction = new Vector2(Mathf.Cos(i), Mathf.Sin(i));
-                                SpawnBomb(direction);
-                            }
-                            attackTime = 0.1f;
-                            break;
-                        }
-                    default:
-                        isAttacking = false;
-                        OnAttackFinished?.Invoke();
-                        break;
+                    new(0f, 0.1f),
+                    new(5f, 0.1f),
+                    new(10f, 1.5f),
+                    new(20f, 0.1f),
+                    new(25f, 0.1f),
+                    new(30f, 1.5f),
+                    new(0f, 0.1f),
+                    new(5f, 0.1f),
+                    new(10f, 1.5f),
+                    new(20f, 0.1f),
+                    new(25f, 0.1f),
+                    new(30f, 1.5f),
+                    new(0f, 0.1f),
+                    new(5f, 0.1f),
+                    new(10f, 1.5f),
+                    new(20f, 0.1f),
+                    new(25f, 0.1f),
+                    new(30f, 10f)
+                };
+                if (attackPhase < bombPlacements.Length)
+                {
+                    for (
+                        float i = minAngle + bombPlacements[attackPhase].x * Mathf.Deg2Rad;
+                        i < maxAngle; i += groupSpacing)
+                    {
+                        Vector2 direction = new Vector2(Mathf.Cos(i), Mathf.Sin(i));
+                        SpawnBomb(direction);
+                    }
+                    attackTime = bombPlacements[attackPhase].y;
+                }
+                else
+                {
+                    isAttacking = false;
                 }
                 attackPhase++;
             }
+            if (!isAttacking) OnAttackFinished?.Invoke();
         }
     }
 

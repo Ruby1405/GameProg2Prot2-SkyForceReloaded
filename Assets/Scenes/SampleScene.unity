@@ -603,7 +603,7 @@ MonoBehaviour:
     poolSize: 40
   - poolName: Bombs
     pooledPrefab: {fileID: 7274979645324806926, guid: a460fcc853955f74b9f683102704d38e, type: 3}
-    poolSize: 80
+    poolSize: 120
 --- !u!4 &347285444
 Transform:
   m_ObjectHideFlags: 0
