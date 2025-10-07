@@ -73,7 +73,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (0 >= iFrameTimer)
         {
-            Debug.Log("Collided");
             iFrameTimer = iFrameLength;
             HealthEventManager.TriggerHealthChanged(-1);
         }

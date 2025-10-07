@@ -10,13 +10,16 @@ public class StarManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
         EnemyEventManager.OnEnemyDestroyed += DestroyedEnemy;
+    }
+    void OnDestroy()
+    {
+        EnemyEventManager.OnEnemyDestroyed -= DestroyedEnemy;
     }
     private void DestroyedEnemy(EnemyDestroyedEventArgs args)
     {

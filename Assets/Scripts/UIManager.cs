@@ -6,13 +6,13 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameVariables gameVariables;
     [SerializeField] private TMPro.TMP_Text scoreText;
     [SerializeField] private RectTransform livesContainer;
+    [SerializeField] private GameObject gameOverScreen;
 
     void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -20,6 +20,15 @@ public class UIManager : MonoBehaviour
         }
         gameVariables.OnScoreChanged += UpdateScoreUI;
         gameVariables.OnLivesChanged += UpdateLivesUI;
+    }
+
+    private void OnDestroy()
+    {
+        if (gameVariables != null)
+        {
+            gameVariables.OnScoreChanged -= UpdateScoreUI;
+            gameVariables.OnLivesChanged -= UpdateLivesUI;
+        }
     }
 
     private void UpdateScoreUI(int newScore)
@@ -31,9 +40,18 @@ public class UIManager : MonoBehaviour
     private void UpdateLivesUI(int newLives)
     {
         // Update the lives UI element
-        for (int i = 0; i < livesContainer.childCount; i++)
+        if (livesContainer == null)
         {
-            livesContainer.GetChild(i).gameObject.SetActive(i < newLives);
+            Debug.LogWarning("Lives container is not assigned in UIManager.");
+            return;
+        }
+        for (int i = 0; i < livesContainer.childCount; i++)
+            {
+                livesContainer.GetChild(i).gameObject.SetActive(i < newLives);
+            }
+        if (newLives <= 0)
+        {
+            gameOverScreen.SetActive(true);
         }
     }
 }

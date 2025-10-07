@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class ProjectileSpawner : MonoBehaviour
@@ -6,6 +7,7 @@ public class ProjectileSpawner : MonoBehaviour
     [SerializeField] private float cooldown = 0.5f;
     private float lastSpawnTime = 0f;
     private bool firing = false;
+    [SerializeField] private UnityEvent onFire;
 
     void FixedUpdate()
     {
@@ -21,6 +23,7 @@ public class ProjectileSpawner : MonoBehaviour
         {
             projectile.transform.position = transform.position;
             projectile.SetActive(true);
+            onFire?.Invoke();
         }
     }
     public void UpdateFiringState(InputAction.CallbackContext context)

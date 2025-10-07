@@ -31,6 +31,10 @@ public class BossBehaviour : EnemyBehavior
         rb = GetComponent<Rigidbody>();
     }
 
+    void OnDestroy()
+    {
+        BossAttack.OnAttackFinished -= StartAttackCycle;
+    }
     public void StartAttackCycle()
     {
         if (attacks.Count > 0)
@@ -52,7 +56,6 @@ public class BossBehaviour : EnemyBehavior
             }
         }
     }
-
     private void Move()
     {
         Vector3 targetPoint = headingToA ? new Vector3(patrolPointA.x, 0, patrolPointA.y) : new Vector3(patrolPointB.x, 0, patrolPointB.y);
