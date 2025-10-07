@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerBehaviour : MonoBehaviour
 {
     private Rigidbody rb;

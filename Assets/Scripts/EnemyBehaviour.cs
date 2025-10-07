@@ -1,6 +1,7 @@
 using UnityEngine;
 public class EnemyBehavior : MonoBehaviour
 {
+    [Header("Enemy Stats")]
     [SerializeField] private int scoreValue = 1;
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private int currentHealth;
