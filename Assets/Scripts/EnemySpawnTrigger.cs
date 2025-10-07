@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawnTrigger : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class EnemySpawnTrigger : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab = null;
     [Header("Spawn options")]
     [SerializeField] private CatmullRomSpline path = null;
+    [SerializeField] private UnityEvent<Vector3> onSpawn;
     private Color gizmoColor = Color.black;
     void OnValidate()
     {
@@ -26,6 +28,7 @@ public class EnemySpawnTrigger : MonoBehaviour
 
             enemy.SetActive(true);
             enemy.transform.position = transform.position;
+            onSpawn?.Invoke(transform.position);
             Destroy(gameObject);
         }
         else if (enemyPrefab != null)
@@ -33,6 +36,8 @@ public class EnemySpawnTrigger : MonoBehaviour
             GameObject enemy = Instantiate(enemyPrefab);
             enemy.transform.position = transform.position;
             enemy.SetActive(true);
+            onSpawn?.Invoke(transform.position);
+            Destroy(gameObject);
         }
         else
         {
