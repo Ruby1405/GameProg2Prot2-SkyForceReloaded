@@ -1,0 +1,115 @@
+@startuml
+
+!theme plain
+top to bottom direction
+
+rectangle EnemyEventManager
+rectangle StarBehaviour
+rectangle HealthEventManager
+rectangle MapBehaviour
+rectangle ObjectPooler
+rectangle GameVariables
+rectangle ScoreEventManager
+rectangle TiltMeshAnimator
+rectangle TargetBehaviour
+
+rectangle UIManager
+rectangle EnemySpawnTrigger
+
+rectangle EnemyBehavior
+rectangle ProjectileSpawner
+rectangle BossAttackBomb
+rectangle BossAttackMissile
+rectangle GameVariablesEventSubscriber
+rectangle PlayerBehaviour
+rectangle StarManager
+
+rectangle BossAttack
+
+rectangle BossBehaviour
+rectangle EnemyPathedMovement
+
+rectangle InputManager
+
+rectangle SceneManager
+
+rectangle MainMenuUI
+
+together {
+    rectangle LevelBounds
+    rectangle Projectile
+    rectangle CatmullRomSpline
+}
+
+
+BossAttack                    ^-[plain]-           BossAttackBomb
+BossAttack                    ^-[plain]-           BossAttackMissile
+BossAttackBomb                -[#00a000]->>        ObjectPooler
+BossAttackMissile             -[#00a000]->>        ObjectPooler
+
+BossBehaviour                 -[#00a000]->>        BossAttack
+BossBehaviour                 -[#0000ff]->         BossAttack
+
+EnemyBehavior                 -[#00a000]->>        EnemyEventManager
+EnemyBehavior                 -[#0000ff]->         TargetBehaviour
+
+EnemySpawnTrigger             -[#00a000]->>        ObjectPooler
+EnemySpawnTrigger             -[#00a000]->>        EnemyPathedMovement
+
+EnemyPathedMovement           -[#00a000]->>    CatmullRomSpline
+
+GameVariables                 -[#0000ff]->         HealthEventManager
+GameVariables                 -[#0000ff]->         ScoreEventManager
+
+GameVariablesEventSubscriber  -[#00a000]->>        GameVariables
+
+MapBehaviour                  -[#0000ff]->         EnemySpawnTrigger
+MapBehaviour                  -[#0000ff]->         GameVariables
+
+PlayerBehaviour               -[#00a000]->>       HealthEventManager
+PlayerBehaviour               -[#0000ff]->        InputManager
+PlayerBehaviour               -[#00a000]->>       ScoreEventManager
+PlayerBehaviour               -[#0000ff]->         TargetBehaviour
+
+ProjectileSpawner             -[#0000ff]->        InputManager
+ProjectileSpawner             -[#00a000]->>        ObjectPooler
+
+SceneManager                  -[#0000ff]->         UIManager
+SceneManager                  -[#0000ff]--->         MainMenuUI
+
+StarManager                   -[#0000ff]->         EnemyEventManager
+StarManager                   -[#00a000]->>        ObjectPooler
+StarManager                   -[#00a000]->>        StarBehaviour
+
+TiltMeshAnimator              -[#0000ff]->         PlayerBehaviour
+
+UIManager                     -[#0000ff]->         GameVariables
+
+' BossBehaviour                 -[#3574f0,plain]->>  BossAttackBomb                                 
+' BossBehaviour                 -[#3574f0,plain]->>  BossAttackMissile                   
+' EnemyBehavior                 -[#3574f0,plain]->>  EnemyEventManager            
+' EnemyBehavior                 -[#3574f0,plain]->>  Projectile       
+' EnemyBehavior                 -[#3574f0,plain]->>  TargetBehaviour            
+' EnemyPathedMovement           -[#3574f0,plain]->>  CatmullRomSpline             
+' EnemyPathedMovement           -[#5fad65,dotted]->>  CatmullRomSpline             
+' EnemyPathedMovement           -[#3574f0,plain]->>  EnemyBehavior                
+' EnemySpawnTrigger             -[#5fad65,dotted]->>  CatmullRomSpline             
+' EnemySpawnTrigger             -[#3574f0,plain]->>  EnemyPathedMovement          
+' GameVariablesEventSubscriber  -[#3574f0,plain]->>  GameVariables                
+' GameVariablesEventSubscriber  -[#5fad65,dotted]->>  GameVariables                
+' GameVariablesEventSubscriber  -[#5fad65,dotted]->>  GameVariablesEventSubscriber 
+' GameVariablesEventSubscriber  -[#3574f0,plain]->>  HealthEventManager           
+' GameVariablesEventSubscriber  -[#3574f0,plain]->>  ScoreEventManager            
+' LevelBounds                   -[#5fad65,dotted]->>  LevelBounds                               
+' ObjectPooler                  -[#5fad65,dotted]->>  ObjectPooler                 
+' PlayerBehaviour               -[#3574f0,plain]->>  HealthEventManager           
+' PlayerBehaviour               -[#3574f0,plain]->>  ScoreEventManager            
+' PlayerBehaviour               -[#3574f0,plain]->>  StarBehaviour
+' PlayerBehaviour               -[#3574f0,plain]->>  TargetBehaviour
+' StarManager                   -[#3574f0,plain]->>  EnemyEventManager                  
+' StarManager                   -[#3574f0,plain]->>  StarBehaviour                
+' StarManager                   -[#5fad65,dotted]->>  StarManager                  
+' UIManager                     -[#3574f0,plain]->>  GameVariables                
+' UIManager                     -[#5fad65,dotted]->>  GameVariables                
+' UIManager                     -[#5fad65,dotted]->>  UIManager                    
+@enduml

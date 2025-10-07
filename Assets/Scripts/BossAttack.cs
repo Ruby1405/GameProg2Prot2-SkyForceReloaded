@@ -1,11 +1,8 @@
 using System;
 using UnityEngine;
 
-public class BossAttack : MonoBehaviour
+public abstract class BossAttack : MonoBehaviour
 {
     public static Action OnAttackFinished;
-    public virtual void StartAttack()
-    {
-
-    }
+    public abstract void StartAttack();
 }

@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class ProjectileSpawner : MonoBehaviour
 {
+    [SerializeField] private string poolName = "PlayerProjectiles";
     [SerializeField] private float cooldown = 0.5f;
     private float lastSpawnTime = 0f;
     private bool firing = false;
@@ -18,7 +19,7 @@ public class ProjectileSpawner : MonoBehaviour
         if (lastSpawnTime > 0f) return;
         lastSpawnTime = cooldown;
 
-        GameObject projectile = ObjectPooler.Instance.GetPooledObject("PlayerProjectiles");
+        GameObject projectile = ObjectPooler.Instance.GetPooledObject(poolName);
         if (projectile != null)
         {
             projectile.transform.position = transform.position;

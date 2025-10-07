@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 3311981251507137678}
   - component: {fileID: 7248024065511010236}
   m_Layer: 0
-  m_Name: CoinCollider
+  m_Name: PickupCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -325,6 +325,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0.05
+  onFire:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9043311508377676421
 GameObject:
   m_ObjectHideFlags: 0
