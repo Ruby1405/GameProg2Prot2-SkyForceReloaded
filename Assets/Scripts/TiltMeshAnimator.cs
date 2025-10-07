@@ -21,7 +21,7 @@ public class TiltMeshAnimator : MonoBehaviour
         Quaternion targetRotation = initialRotation;
         if (currentTarget != Vector2.zero)
         {
-            targetRotation = Quaternion.Euler(-currentTarget.y * verticalLeanAngle, 0, currentTarget.x * horizontalLeanAngle) * initialRotation;
+            targetRotation = Quaternion.Euler(currentTarget.y * verticalLeanAngle, 0, -currentTarget.x * horizontalLeanAngle) * initialRotation;
         }
         meshTransform.localRotation = Quaternion.Slerp(meshTransform.localRotation, targetRotation, Time.deltaTime * tiltSpeed);
     }
