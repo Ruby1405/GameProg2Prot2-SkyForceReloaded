@@ -56,7 +56,7 @@ EnemyBehavior                 -[#0000ff]->         TargetBehaviour
 EnemySpawnTrigger             -[#00a000]->>        ObjectPooler
 EnemySpawnTrigger             -[#00a000]->>        EnemyPathedMovement
 
-EnemyPathedMovement           -[#00a000]->>    CatmullRomSpline
+EnemyPathedMovement           -[#00a000]->>        CatmullRomSpline
 
 GameVariables                 -[#0000ff]->         HealthEventManager
 GameVariables                 -[#0000ff]->         ScoreEventManager
@@ -66,16 +66,16 @@ GameVariablesEventSubscriber  -[#00a000]->>        GameVariables
 MapBehaviour                  -[#0000ff]->         EnemySpawnTrigger
 MapBehaviour                  -[#0000ff]->         GameVariables
 
-PlayerBehaviour               -[#00a000]->>       HealthEventManager
-PlayerBehaviour               -[#0000ff]->        InputManager
-PlayerBehaviour               -[#00a000]->>       ScoreEventManager
+PlayerBehaviour               -[#00a000]->>        HealthEventManager
+PlayerBehaviour               -[#0000ff]->         InputManager
+PlayerBehaviour               -[#00a000]->>        ScoreEventManager
 PlayerBehaviour               -[#0000ff]->         TargetBehaviour
 
-ProjectileSpawner             -[#0000ff]->        InputManager
+ProjectileSpawner             -[#0000ff]->         InputManager
 ProjectileSpawner             -[#00a000]->>        ObjectPooler
 
 SceneManager                  -[#0000ff]->         UIManager
-SceneManager                  -[#0000ff]--->         MainMenuUI
+SceneManager                  -[#0000ff]--->       MainMenuUI
 
 StarManager                   -[#0000ff]->         EnemyEventManager
 StarManager                   -[#00a000]->>        ObjectPooler
